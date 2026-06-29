@@ -1,0 +1,18 @@
+site_name: Wattsworth
+site_url: https://wattsworth.net
+theme:
+  name: material
+
+markdown_extensions:
+  - attr_list
+  - mkdocs-click
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+hooks:
+  - reload_modules.py
