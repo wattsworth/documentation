@@ -2,6 +2,8 @@ site_name: Wattsworth
 site_url: https://wattsworth.net
 theme:
   name: material
+  features: 
+    - content.code.annotate
 
 markdown_extensions:
   - attr_list
@@ -13,6 +15,10 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - admonition
+  - pymdownx.tabbed:
+      alternate_style: true
+
 
 hooks:
   - reload_modules.py
