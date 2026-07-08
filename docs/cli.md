@@ -1,8 +1,5 @@
----
-title: Command Line Interface (CLI)
----
+# Joule Command Line Interface (CLI)
 
-# Joule CLI
 How to interact with a Joule node from the command line.
 
 ::: mkdocs-click

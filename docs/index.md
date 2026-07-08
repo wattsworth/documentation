@@ -2,21 +2,15 @@
 title: Overview
 ---
 
-# Welcome to MkDocs
+# Joule
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Joule decentralizes signal processing into discrete **modules**. These
+modules are connected by **streams** as shown in the figure below. The
+interconnection of modules and streams form a data **pipeline**. A pipeline may execute
+as a single proces, a collection of processes, or even be distributed
+across multiple nodes in a network without adjusting any module code.
 
-## Commands
+![Data Pipeline](/images/data_pipeline.png)
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-  
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+   Joule **pipelines** are composed of **modules** and **streams**
 

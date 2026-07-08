@@ -5,6 +5,16 @@ theme:
   features: 
     - content.code.annotate
 
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: false
+            show_root_heading: false
+
+
 markdown_extensions:
   - attr_list
   - mkdocs-click
@@ -15,10 +25,29 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - pymdownx.blocks.caption
+  - pymdownx.snippets
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - admonition
   - pymdownx.tabbed:
       alternate_style: true
-
+  - md_in_html
 
 hooks:
   - reload_modules.py
+
+nav:
+   - Home: index.md
+   - Getting Started:
+      - Installation: installation.md
+      - Tutorial: quick_start.md
+   - Jouled (server):
+      - Configuration: configuration.md
+      - Modules: modules.md
+      - Pipes: pipes.md
+   - Joule (client):
+      - API: api.md
+      - CLI: cli.md
+   - Lumen: lumen.md
