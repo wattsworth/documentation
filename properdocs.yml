@@ -4,7 +4,9 @@ theme:
   name: material
   features: 
     - content.code.annotate
-
+extra_css:
+  - custom.css
+  
 plugins:
   - search
   - mkdocstrings:
@@ -50,4 +52,7 @@ nav:
    - Joule (client):
       - API: api.md
       - CLI: cli.md
-   - Lumen: lumen.md
+   - Lumen:
+      - Data Explorer: lumen/explorer.md
+      - Installation Settings: lumen/installation.md
+      - Account Settings: lumen/account.md

@@ -229,11 +229,13 @@ There are two steps:
 .. _ArgumentParser: https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser
 .. _Namespace: https://docs.python.org/3/library/argparse.html#argparse.Namespace
 
-### Reference
+### Documentation
 
-.. autoclass:: joule.client.ReaderModule
-    :members:
-    :inherited-members:
+::: joule.client.ReaderModule
+    options:
+        show_root_toc_entry: false
+        heading_level: 4
+        inherited_members: true
 
 
 ## Filter Modules
@@ -341,13 +343,15 @@ $>./demo_filter.py --module_config=module.conf \
 
 ### Testing
 
-.. include:: filter_module/testing.rst
+TODO
 
 ### Reference
 
-.. autoclass:: joule.client.FilterModule
-    :members:
-    :inherited-members:
+::: joule.client.FilterModule
+    options:
+        show_root_toc_entry: false
+        heading_level: 4
+        inherited_members: true
 
 ## Composite Modules
 
@@ -358,28 +362,142 @@ class :class:`joule.client.CompositeModule` illustrated below.
 
 ![Composite Module](/images/composite_module.png)
 
-### Examples
+#### Examples
 
 
-.. include:: composite_module/example.rst
+``` python title="example_composite.py"
+--8<-- "jouleexamples/example_composite.py"
+```
+
+The child class must implement the :meth:`joule.CompositeModule.setup` coroutine
+which should perform the following:
+
+  1. Create modules
+  2. Create local pipes for interior streams
+  3. Start modules by calling :meth:`joule.BaseModule.run` with the appropriate parameters
+  4. Return module tasks for execution in the main event loop
+
+This example contains a :ref:`sec-high-bandwidth-reader` connected to a :ref:`sec-median-filter`.
+The modules are connected with a :class:`joule.LocalPipe` and the output of the
+filter is connected to a :class:`joule.OutputPipe` named **filtered**.
+
+Creating Module Arguments
+  In the example above, both modules receive the **parsed_args** parameter directly.
+  In more complex scenarios it is often necessary to construct a :class:`argparse.Namespace` object
+  for each module with the particular arguments it requires. Make sure *all* arguments are specified
+  and match the expected data types The code snipped below constructs an appropriate Namespace
+  object for the ArgumentParser configuration.
+
+``` python title="Handling Command Line Arguments"
+
+import json
+import argparse
+
+# example ArgumentParser
+
+args = argparse.ArgumentParser("demo")
+args.add_argument("--arg1", required=True)  # modules should use keyword arguments
+args.add_argument("--arg2", type=int, required=True)
+args.add_argument("--arg3", type=json.loads, required=True)
+
+# to produce these arguments manually:
+
+module_args = argparse.Namespace(**{
+"arg1": "a string",  # type not specified
+"arg2": 100,         # type=int
+"arg3": [100,10,4]   # type=json
+})
+```
+
 
 ### Development
 
-.. include:: composite_module/development.rst
+See Filter Development
 
 ### Testing
 
 
-.. include:: composite_module/testing.rst
+See Filter Testing
 
 ### Reference
 
 
-.. autoclass:: joule.client.CompositeModule
-    :members:
-    :inherited-members:
+::: joule.client.CompositeModule
+    options:
+        show_root_toc_entry: false
+        heading_level: 4
+        inherited_members: true
 
 ## User Interfaces
-+++++++++++++++
+Modules can provide web-based user interfaces.
+When a Joule node is connected to
+a Lumen server, the user authentication and authorization is handled
+by Lumen and the interface is presented on a common dashboard with other
+modules the user is authorized to use.
 
-.. include:: interfaces.rst
+To add an interface to a module implement the :meth:`joule.client.BaseModule.routes` function
+and register handlers for any routes your module implements. Then enable the interface
+by changing the ``is_app`` attribute to ``yes`` in the
+:ref:`sec-modules` file.
+
+### Examples
+
+#### Basic Interface
+
+``` python title="example_interface.py"
+--8<-- "jouleexamples/example_interface.py"
+```
+
+#### Bootstrap Interface
+
+Typical web interfaces require more complex HTML, cascading style sheets (CSS), and javascript. The example below
+provides a complete module implementation using the `Bootstrap <http://getbootstrap.com/>`_ CSS framework
+and `Jinja <http://jinja.pocoo.org/>`_ HTML templates.
+
+``` python title="bootstrap_composite.py"
+--8<-- "jouleexamples/bootstrap_interface.py"
+```
+
+In addition to the module code itself this interface requires several additional files located in the assets directory
+as shown:
+
+``` title="file layout"
+├── bootstrap_interface.py
+└── assets
+    ├── css
+    │   └── main.css # and other css files
+    ├── js
+    │   └── index.js # other js files
+    └── templates
+        ├── layout.jinja2
+        └── index.jinja2
+```
+
+The HTML templates are stored in ``assets/templates``. **layout.jinja2** is common to all views and provides hooks
+to customize the content and inject additional stylesheet and script tags. The module home page renders **index.jinja**
+which is shown below:
+
+``` jinja title="assets/templates/index.jinja2"
+--8<-- "jouleexamples/assets/templates/index.jinja2"
+```
+
+Notice that additional CSS and javascript assets that are injected into the appropriate blocks in the layout template.
+Bootstrap classes provide a simple and powerful mechanism for creating a basic page, but in some cases it may be
+necessary to add custom CSS to fine tune an element's appearance.
+
+``` css title="assets/css/index.css"
+--8<-- "jouleexamples/assets/css/index.css"
+```
+
+Javascript makes websites interactive. This file makes repeated calls to the server for new data.
+Using AJAX requests rather than reloading the entire page improves the user's experience and reduces network traffic.
+
+``` javascript title="assets/js/index.js"
+--8<-- "jouleexamples/assets/js/index.js"
+```
+
+#### Development
+
+When running as a standalone process, modules that provide a web interface
+will start a local webserver on port 8000 (by default). This is accessible
+from a browser at ``http://localhost:8000``.
