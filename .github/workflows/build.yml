@@ -28,7 +28,7 @@ jobs:
           mkdir docs/jouleexamples
           
           # Copy the contents of the specific subfolder into docs/jouleexamples
-          mv /tmp/external-repo/jouleexamples docs/
+          mv /tmp/example_modules/jouleexamples docs/
 
       # 3. Set up Python environment
       - name: Set up Python
