@@ -48,16 +48,16 @@ jobs:
       # 6. Compress the static 'site' folder into a .tgz archive
       - name: Package Build as .tgz
         run: |
-          tar -czf mkdocs-build.tgz site/
+          tar -czf site.tgz site/
 
       # 7. Update the permanent 'latest-prod' release
       # 'allowUpdates: true' forces the action to replace the asset on the existing tag
       - name: Update Latest Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "mkdocs-build.tgz"
+          artifacts: "site.tgz"
           tag: "latest-prod"
-          name: "Latest Production Documentation"
+          name: "Latest Build"
           body: |
             This release is updated automatically on every push to the production branch.
             
