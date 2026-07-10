@@ -50,3 +50,29 @@
     display: inline;
     padding-top: 2px;
 }
+.button-hide{
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    border-radius: 4px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    padding: 2px;
+    border-style: solid;
+    border-width: 1px;
+    display: inline;
+    padding-top: 2px;
+}
+.button-add{
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #3c763d;
+    border-radius: 4px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    padding: 2px;
+    border-style: solid;
+    border-width: 1px;
+    display: inline;
+    padding-top: 2px;
+}

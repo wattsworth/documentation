@@ -1,4 +1,4 @@
-# Joule Modules
+# Joule Module Development
 
 Modules are executable programs that process data :ref:`sec-data-streams`. They are
 connected to each other by :ref:`pipes`. Joule runs each module as a separate

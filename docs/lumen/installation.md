@@ -5,7 +5,7 @@
 ## File Tree
 
 When the page is loaded only the installation database and root folders are
-listed. Click the |fa-caret-right| icon to expand or collapse a folder. Folders
+listed. Click the :fontawesome-solid-caret-right: icon to expand or collapse a folder. Folders
 contain data streams and/or subfolders. Select an item to display it in the
 Property Panel. You may display the :ref:`installation-database`, a
 :ref:`installation-folder`, or a :ref:`installation-stream`.
@@ -43,6 +43,6 @@ Do not change the URL, this feature is currently unsupported.
 
 ![Admin Tab](../images/lumen/installation/admin.png)
 
-![Add Permission](../images/lumen/installation/add_permission.png)
+![Add Permission](../images/lumen/installation/add_permission.png){ width="400"}
 
-![Remove Installation](../images/lumen/installation/remove_installation.png)
+![Remove Installation](../images/lumen/installation/remove_installation.png){ width="400"}

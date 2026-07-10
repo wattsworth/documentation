@@ -87,22 +87,18 @@ data, and adjust the plot behavior.
 
 ### Files Tab
 
-Each installation is an expandable file tree. Clicking the |fa-caret-right| icon
+Each installation is an expandable file tree. Clicking the :fontawesome-solid-caret-right: icon
 expands or collapses a node. Expand an installation to see the list of root
 folders. Folders contain data streams and/or subfolders. Expand a data stream to
 see the list of plottable elements. Add an element to the plot by clicking the
-|add-element| button next to the element name. The plot color will appear as a
+<span class="button-add">:fontawesome-solid-chart-line: add</span> button next to the element name. The plot color will appear as a
 square patch next to the name.
 
-Remove an element by clicking the |remove-element| button. Elements may only be
-plotted on an axis with matching units. If both left and right axes have
-elements with other units, the plot button will be disabled. Hover the cursor
-over the button to display the required axis units.
+Remove an element by clicking the <span class="button-hide">:fontawesome-solid-chart-line: hide</span> button. Elements may only be plotted on an axis with matching units. If both left and right axes have
+elements with other units, the plot button will be disabled. Hover the cursor over the button to display the required axis units.
 
 If you have owner or administrator rights on an installation, click the
-|fa-gear| icon next to the installation name to open the Installation Settings
-page.
-
+:fontawesome-solid-rotate: icon next to the installation name to refresh the folder list.
 
 ### Plot Tab
 
@@ -111,10 +107,10 @@ headers show the current unit on the righthand side. Hover the cursor over an
 element to display the element stream and installation. The format is
 ``[stream_name] @ [installation_name]``.
 
-Click the |fa-close| icon next to the element entry to remove it from the plot.
+Click the :fontawesome-solid-close: icon next to the element entry to remove it from the plot.
 When all elements are removed the Plot Tab is disabled.
 
-Click the |fa-gear| icon next to the element entry to bring up the  **Plot
+Click the :fontawesome-solid-gear: icon next to the element entry to bring up the  **Plot
 Settings Dialog** shown below:
 
 ![Plot Settings](../images/lumen/explorer/plot_settings.png)
@@ -161,7 +157,7 @@ displays the last hour and the Main Plot displays the last twenty minutes. If
 the plotted elements have no data over this interval the plots will be empty.
 
 The plots automatically refresh to track the current time. To stop the auto
-refresh clear the checkbox or click the |fa-close| icon on the |live-update|
+refresh clear the checkbox or click the :fontawesome-solid-close: icon on the <span class="button-add">:fontawesome-solid-heartbeat: Live Update</span>
 label at the bottom of the Main Plot.
 
 **Lock Selection Width**
@@ -188,10 +184,10 @@ Data views are saved plots that can be shared between users. Users may only
 open views if they have permissions on all the datasets used in the view. The open/save
 buttons are located at the top of the :ref:`explorer-tools-tab`.
 
-#### Open View
+#### Open Plot
 
 
-Click |open-view| to display the **Open View** dialog. This dialog lists all available
+Click <span class="fa-button gray">Open Plot</span> to display the **Open View** dialog. This dialog lists all available
 data views. If you do not see a view you are expecting check to make sure you
 have permissions on all the installations involved with the view.
 
@@ -201,14 +197,13 @@ The search bar at the top of the dialog filters views by title and description.
 It updates as you type.
 
 Clear the **include public views?** check box to show only the views you have
-created. Views that are locked to the current time have a |live-update| label
-superimposed on the plot thumbnail. Click a thumbnail to load the view onto the
+created. Click a thumbnail to load the view onto the
 plot. This will hide any currently plotted elements.
 
 ### Save View
 
 
-Click |save-view| to display the **Save Current View** dialog. This dialog
+Click <span class="fa-button gray">Save Plot</span>to display the **Save Current View** dialog. This dialog
 allows you to save the current plot so you can reload it later. See the
 :ref:`explorer-download` section for saving the plot data to your local
 computer.
@@ -233,20 +228,20 @@ datasets directly. The download tools are located in the :ref:`explorer-tools-ta
 
 #### Image
 
-Click the |plot-image| button to display a png image of the Main Plot. The
+Click the <span class="fa-button gray">:fontawesome-solid-image: Download Image</span> button to display a png image of the Main Plot. The
 picture resolution matches your display. To generate a higher resolution use the
 browser controls to zoom out on the web page before clicking the download
 button.
 
 #### Data
 
-Click the |plot-data| button to display the **Data Download Dialog** shown
+Click the <span class="fa-button gray">:fontawesome-solid-download: Download Data</span> button to display the **Data Download Dialog** shown
 below. Streams with plotted elements are listed along with details about the
 NilmDB location (URL and path).
 
 ![Download Data](../images/lumen/explorer/data_download.png)
 
-Click |download-data| to download the selected stream over the time
+Click <span class="fa-button blue">:fontawesome-solid-download: Download</span> to download the selected stream over the time
 range displayed in the Main Plot. The data will be decimated to fit within
 the maximum resolution of the host installation. For example if the
 installation has a maximum resolution of 3000, the downloaded dataset will have

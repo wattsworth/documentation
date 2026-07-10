@@ -1,0 +1,70 @@
+name: Build and Update Rolling Release
+
+on:
+  push:
+    branches:
+      - production
+
+# Necessary to allow GitHub Actions to create and overwrite releases/tags
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout the main MkDocs repository
+      - name: Checkout Main Repo
+        uses: actions/checkout@v4
+
+      # 2. Clone external repo to a temp folder and copy the specific subfolder
+      - name: Copy Joule Examples Repository
+        run: |
+          # Clone into a temporary directory outside the main workspace
+          git clone git@github.com:wattsworth/example-modules.git /tmp/example_modules
+          
+          # Create the destination directory in docs if it doesn't exist
+          mkdir docs/jouleexamples
+          
+          # Copy the contents of the specific subfolder into docs/jouleexamples
+          mv /tmp/external-repo/jouleexamples docs/
+
+      # 3. Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+          cache: 'pip'
+
+      # 4. Install MkDocs Material and required dependencies
+      - name: Install Dependencies
+        run: |
+          pip install --upgrade pip
+          pip install mkdocs-material mkdocs-click mkdocs-autorefs mkdocstrings mkdocstrings-python
+
+      # 5. Build the MkDocs site
+      - name: Build Site
+        run: mkdocs build
+
+      # 6. Compress the static 'site' folder into a .tgz archive
+      - name: Package Build as .tgz
+        run: |
+          tar -czf mkdocs-build.tgz site/
+
+      # 7. Update the permanent 'latest-prod' release
+      # 'allowUpdates: true' forces the action to replace the asset on the existing tag
+      - name: Update Latest Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "mkdocs-build.tgz"
+          tag: "latest-prod"
+          name: "Latest Production Documentation"
+          body: |
+            This release is updated automatically on every push to the production branch.
+            
+            **Last Updated:** ${{ github.event.head_commit.timestamp }}
+            **Commit:** ${{ github.sha }}
+          allowUpdates: true
+          replacesArtifacts: true
+          token: ${{ secrets.GITHUB_TOKEN }}

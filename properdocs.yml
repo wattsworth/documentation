@@ -47,8 +47,9 @@ nav:
       - Tutorial: quick_start.md
    - Jouled (server):
       - Configuration: configuration.md
-      - Modules: modules.md
+      - Modules: module_included.md
       - Pipes: pipes.md
+      - Development: module_development.md
    - Joule (client):
       - API: api.md
       - CLI: cli.md
