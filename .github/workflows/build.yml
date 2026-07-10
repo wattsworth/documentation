@@ -22,7 +22,7 @@ jobs:
       - name: Copy Joule Examples Repository
         run: |
           # Clone into a temporary directory outside the main workspace
-          git clone https://github.com/wattsworth/documentation.git /tmp/example_modules
+          git clone https://github.com/wattsworth/example-modules.git /tmp/example_modules
           
           # Create the destination directory in docs if it doesn't exist
           mkdir docs/jouleexamples
