@@ -39,7 +39,7 @@ jobs:
       # 4. Install MkDocs Material and required dependencies
       - name: Install Dependencies
         run: |
-          pip install properdocs mkdocs-material mkdocs-click mkdocs-autorefs mkdocstrings mkdocstrings-python
+          pip install joule properdocs mkdocs-material mkdocs-click mkdocs-autorefs mkdocstrings mkdocstrings-python
 
       # 5. Build the MkDocs site
       - name: Build Site
