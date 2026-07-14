@@ -250,8 +250,8 @@ name = exporter name
 
 [Target]
 # export to a node
-url = http://...
-importer_api_key = XXXX
+destination_url = http://...
+destination_url_key = XXXX
 # export to a directory
 path = /file/path
 retain = 5m|all

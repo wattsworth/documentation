@@ -76,3 +76,86 @@
     display: inline;
     padding-top: 2px;
 }
+
+
+/* index page styles */
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* This vertically centers all items inside the container */
+  gap: 15px;           /* Optional: Adds space between the image and the text */
+}
+
+/* Optional: Ensure the image doesn't blow up in size */
+.header-img {
+  max-height: 70px; 
+  width: auto;
+}
+
+.custom-hero {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: #ffffff;
+  padding: 3.5rem 2rem .1rem 2rem;  margin: -1.5rem -1rem 2rem -1rem; /* Margins to span the content width */
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+.custom-hero .hero-corner-links p {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 1.1em;
+    font-family: monospace;
+    border-width: 0px;
+    margin-top: 50px;
+    margin-bottom: 15px;
+    margin-right: 5px
+}
+.hero-corner-links a {
+  margin-right: 5px;
+  margin-left: 5px;
+  color: #94a3b8; /* Muted slate color */
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.custom-hero h1 {
+  color: #ffffff !important;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0px;
+}
+.custom-hero h2 {
+  margin-top: .5em;
+}
+.custom-hero h3 {
+  color: #94a3b8;
+  font-size: 1.2rem;
+  /*max-width: 600px;*/
+  margin: 0 auto 1.5rem auto;
+  font-style: italic;
+  font-weight: 200;
+  border-top-width: 1px;
+  border-top-color: gray;
+  border-top-style: solid;
+  max-width: 800px;
+  padding-top: 10px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* Make sure the primary action button stands out */
+.hero-buttons .md-button--primary {
+  background-color: #007acc; /* Tweak this color to match your Wattsworth theme */
+  border-color: #007acc;
+}
+
+/* Styling tweak for 3-column cards grid */
+.grid.cards {
+  margin-top: 2rem;
+}

@@ -1,8 +1,21 @@
 ---
-title: Data Pipes
+title: Overview
 ---
 
-## Overview
+## Joule
+
+Joule decentralizes signal processing into discrete **modules**. These
+modules are connected by **streams** as shown in the figure below. The
+interconnection of modules and streams form a data **pipeline**. A pipeline may execute
+as a single proces, a collection of processes, or even be distributed
+across multiple nodes in a network without adjusting any module code.
+
+![Data Pipeline](/images/data_pipeline.png)
+
+   Joule **pipelines** are composed of **modules** and **streams**
+
+
+## Data Pipes
 
 Joule pipes provide a protocol independent interface to data
 streams. This decouples module design from pipeline
@@ -127,3 +140,7 @@ await p1.write([4,5,6])
 p1.read() # 4,5,6
 p2.read() # 3,4,5,6
 ```
+
+
+## Lumen
+TODO

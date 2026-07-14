@@ -1,5 +1,6 @@
-site_name: Wattsworth
-site_url: https://wattsworth.net
+site_name: Wattsworth Documentation
+
+#site_url: /docs/
 theme:
   name: material
   features: 
@@ -41,7 +42,7 @@ hooks:
   - reload_modules.py
 
 nav:
-   - Home: index.md
+   - Overview: overview.md
    - Getting Started:
       - Installation: installation.md
       - Tutorial: quick_start.md
@@ -57,3 +58,4 @@ nav:
       - Data Explorer: lumen/explorer.md
       - Installation Settings: lumen/installation.md
       - Account Settings: lumen/account.md
+   - About/License: about.md
