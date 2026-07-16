@@ -159,3 +159,32 @@
 .grid.cards {
   margin-top: 2rem;
 }
+
+/* Doc String header styles */
+
+h2.module-name,
+.doc-symbol h4, 
+h4.doc-heading,
+.doc-object h4 {
+    font-size: 1.15rem;           /* Slightly larger font size */
+    font-weight: 600;             /* Bold but not overly chunky */
+    letter-spacing: 0.02em;
+    margin-top: 2rem;             /* Generous spacing above the class */
+    margin-bottom: 1rem;          /* Neat spacing below the class */
+    padding: 0.2rem 0.8rem;       /* Padding around the header block */
+    background-color: var(--md-code-bg-color, #f5f5f5); /* Subtle background matching code blocks */
+    border-left: 4px solid var(--md-typeset-a-color, #2196f3); /* Left accent border (uses theme accent color) */
+    border-radius: 0 4px 4px 0;   /* Rounded corners on the right side */
+    display: block;               /* Ensures the background stretches across the width */
+}
+
+h2.module-name code,
+.doc-symbol h4 code,
+h4.doc-heading code,
+.doc-object h4 code {
+    background: transparent !important; /* Remove inner code block background since we colored the parent */
+    color: var(--md-typeset-color, #222) !important; /* Keep text highly readable */
+    padding: 0 !important;
+    font-size: .75em;
+    font-family: var(--md-code-font-family, monospace);
+}

@@ -50,7 +50,7 @@ Only the **[Main]** section is required, other sections should be included as ne
 
 **[Inputs]**
 
-  * ``name = /stream/path`` data stream inputs. See [pipe configuration](#pipe-configuration) for additional syntax options.
+  * ``name = /stream/path`` data stream inputs. See [pipe configuration](#pipe-format) for additional syntax options.
 
 **[Outputs]**
 

@@ -1,4 +1,4 @@
-# Tutorial: Creating a Data Pipeline
+# Walkthrough: An Example Data Pipeline
 
 ## Initial Setup
 Follow the [installation instructions](installation.md) to create a standalone system on your local machine.

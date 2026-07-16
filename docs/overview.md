@@ -10,7 +10,7 @@ interconnection of modules and streams form a data **pipeline**. A pipeline may 
 as a single proces, a collection of processes, or even be distributed
 across multiple nodes in a network without adjusting any module code.
 
-![Data Pipeline](/images/data_pipeline.png)
+![Data Pipeline](images/data_pipeline.png)
 
    Joule **pipelines** are composed of **modules** and **streams**
 
@@ -28,7 +28,7 @@ supporting only read and write respectively. These are intended for inter-module
 one module's OutputPipe connected to another's InputPipe. The figure below
 illustrates how pipes move stream data between modules.
 
-![Data Pipe](/images/pipe_buffer.png)
+![Data Pipe](images/pipe_buffer.png)
 
 In the figure the pipe is initially empty at Time 0. At Time 1, the producer adds four rows of data which the consumer
 reads at Time 2. The consumer only consumes two rows so the last two rows of data remain
@@ -44,12 +44,12 @@ be running on the same machine.
     When designing modules care must be taken to ensure that they execute
     fast enough to handle streaming data. If a module’s memory usage increases over time this indicates the module cannot keep up with the input and the Joule Pipe buffers are accumulating data.
 
-## Intervals
+### Intervals
 
 Data streams are divided into intervals of continuous time series data.
 The first write to a pipe starts a new stream interval. Subsequent writes append data to this interval. This indicates to data consumers that there are no missing samples in the stream. To indicate missing data the producer closes the interval. A new interval is started on the next write. The plot below shows a stream with three seperate intervals indicating two regions of missing data.
 
-![Data Stream Intervals](/images/intervals.png)
+![Data Stream Intervals](images/intervals.png)
 
 Data Producers
     The code snippet below shows how a data producer indicates missing samples using intervals.
@@ -96,7 +96,7 @@ if data.end_of_interval:
     await output_pipe.close_interval()
 ```
 
-## Caching
+### Caching
 
 
 By default a call to write will immediately send the data to the transport layer (OS pipe, network socket, etc). In
@@ -116,7 +116,7 @@ while(1):
     await pipe.write([[ts,data_point]])
 ```
 
-## Subscriptions
+### Subscriptions
 
 A single input can be copied to multiple outputs using pipe subscriptions. Pipes that produce output (OutputPipe or LocalPipe)
 A LocalPipe can subscribe to input end of a LocalPipe can be

@@ -360,7 +360,7 @@ process. They may have one or more input streams and one or
 more output streams. Composite modules should extend the base
 class :class:`joule.client.CompositeModule` illustrated below.
 
-![Composite Module](/images/composite_module.png)
+![Composite Module](images/composite_module.png)
 
 #### Examples
 

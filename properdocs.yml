@@ -5,6 +5,7 @@ theme:
   name: material
   features: 
     - content.code.annotate
+    - navigation.expand
 extra_css:
   - custom.css
   
@@ -16,6 +17,7 @@ plugins:
           options:
             show_source: false
             show_root_heading: false
+            show_bases: false
 
 
 markdown_extensions:
@@ -45,15 +47,14 @@ nav:
    - Overview: overview.md
    - Getting Started:
       - Installation: installation.md
-      - Tutorial: quick_start.md
+      - Walkthrough: quick_start.md
    - Jouled (server):
       - Configuration: configuration.md
-      - Modules: module_included.md
-      - Pipes: pipes.md
-      - Development: module_development.md
+      - Builtin Modules: module_included.md
+      - Developing Modules: module_development.md
    - Joule (client):
-      - API: api.md
-      - CLI: cli.md
+      - API Documentation: api.md
+      - CLI Documentation: cli.md
    - Lumen:
       - Data Explorer: lumen/explorer.md
       - Installation Settings: lumen/installation.md

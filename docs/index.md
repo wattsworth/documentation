@@ -21,7 +21,7 @@ hide:
 
   <div class="hero-corner-links" markdown>
   
-  [license](license) | 
+  [license](about.md#license) | 
   <a href="https://github.com/wattsworth" aria-label="View source on GitHub" target="_blank" rel="noopener" > 
     :fontawesome-brands-github:
   </a>
@@ -61,7 +61,7 @@ hide:
 
     A web platform provides interactive access to time series and event data. Can be run locally or deploy to the cloud. Customize the platform with Reader and Filter module interfaces. 
 
-    [:fontawesome-solid-angle-right: Module Interfaces](module_development#user-interfaces)
+    [:fontawesome-solid-angle-right: Module Interfaces](module_development.md#user-interfaces)
 
     [:fontawesome-solid-angle-right: Web Platform](lumen/explorer.md)
 

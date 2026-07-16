@@ -62,31 +62,40 @@ The rest of this section describes class methods separated by category.
 ## API Models
 ::: joule.api.Folder
     options: 
+        show_root_heading: true
         heading_level: 4
 ::: joule.api.EventStream
     options: 
-            heading_level: 4
+        show_root_heading: true
+        heading_level: 4
 ::: joule.api.EventStreamInfo
     options: 
-            heading_level: 4
+        show_root_heading: true
+        heading_level: 4
 ::: joule.api.DataStream
     options: 
-            heading_level: 4
+        show_root_heading: true
+        heading_level: 4
 ::: joule.api.DataStreamInfo
     options: 
-            heading_level: 4
+        show_root_heading: true
+        heading_level: 4
 ::: joule.api.Element
     options: 
-            heading_level: 4
+        show_root_heading: true
+        heading_level: 4
 ::: joule.api.Module
     options: 
-            heading_level: 4
+        show_root_heading: true
+        heading_level: 4
 ::: joule.api.ModuleStatistics
     options: 
-            heading_level: 4
+        show_root_heading: true
+        heading_level: 4
 ::: joule.api.Annotation
     options: 
-            heading_level: 4
+        show_root_heading: true
+        heading_level: 4
 
 ## API Exceptions
 ::: joule.errors.ApiError
