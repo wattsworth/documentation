@@ -233,7 +233,8 @@ There are two steps:
 
 ::: joule.client.ReaderModule
     options:
-        show_root_toc_entry: false
+        show_root_toc_entry: true
+        show_root_heading: true
         heading_level: 4
         inherited_members: true
 
@@ -345,11 +346,12 @@ $>./demo_filter.py --module_config=module.conf \
 
 TODO
 
-### Reference
+### Documentation
 
 ::: joule.client.FilterModule
     options:
-        show_root_toc_entry: false
+        show_root_toc_entry: true
+        show_root_heading: true
         heading_level: 4
         inherited_members: true
 
@@ -419,12 +421,12 @@ See Filter Development
 
 See Filter Testing
 
-### Reference
-
+### Documentation
 
 ::: joule.client.CompositeModule
     options:
-        show_root_toc_entry: false
+        show_root_toc_entry: true
+        show_root_heading: true
         heading_level: 4
         inherited_members: true
 

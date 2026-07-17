@@ -37,7 +37,7 @@ below should work on most OS distributions but is not generally recommend for pr
 
 
 ```{.bash title="SHELL" .copy}
-sudo apt install curl
+sudo apt update && sudo apt install -y curl
 curl -sSL https://get.docker.com | sh
 ```
 
@@ -123,7 +123,12 @@ The `joule` package should be installed with pip if you plan on using the API fe
     curl -sSL https://raw.githubusercontent.com/wattsworth/joule/master/install.sh | sh
     ```
 
-
+!!!NOTE
+    After installation run the following command to enable access to `joule` from the command line:
+    ``` bash
+    export PATH=\"/opt/joule/bin\"' >> ~/.bashrc && source ~/.bashrc
+    ```
+    
 ### Docker Container  {: #install-joule-container}
 
 The Joule server may also be installed as a  [docker](#install-docker) container. When running inside a container, Joule will not be able to run

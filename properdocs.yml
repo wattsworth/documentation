@@ -55,6 +55,8 @@ nav:
    - Joule (client):
       - API Documentation: api.md
       - CLI Documentation: cli.md
+      - Data Pipes: pipes.md
+      - Utilities: utilities.md
    - Lumen:
       - Data Explorer: lumen/explorer.md
       - Installation Settings: lumen/installation.md

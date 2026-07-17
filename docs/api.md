@@ -72,6 +72,10 @@ The rest of this section describes class methods separated by category.
     options: 
         show_root_heading: true
         heading_level: 4
+::: joule.api.Event
+    options:
+        show_root_heading: true
+        heading_level: 4
 ::: joule.api.DataStream
     options: 
         show_root_heading: true
@@ -96,9 +100,26 @@ The rest of this section describes class methods separated by category.
     options: 
         show_root_heading: true
         heading_level: 4
+::: joule.api.Proxy
+    options:
+        show_root_heading: true
+        heading_level: 4
+
+
+## Lumen Link Models
+::: joule.api.lumen_link.DisplayedDataStreamElement
+    options:
+        show_root_heading: true
+        heading_level: 4
+
+::: joule.api.lumen_link.DisplayedEventStream
+    options:
+        show_root_heading: true
+        heading_level: 4
+        
+::: joule.api.lumen_link.IRange
 
 ## API Exceptions
 ::: joule.errors.ApiError
 
-## Utilities
-::: joule.utilities
+
