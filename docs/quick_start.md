@@ -41,8 +41,7 @@ system logs, or any other timeseries data source.
 Our reader will simply produce random values.  Joule provides a
 built-in module specifically for this purpose. Stubbing pipeline
 inputs with a random data source can simplify unit testing and expose
-logic errors.  See the `Module Documentation`_ page
-for more details on this and other Joule modules.
+logic errors.  For more details see [Joule Modules](module_included.md).
 
 Try out **joule-random-reader** on the command line:
 
@@ -59,7 +58,7 @@ $> joule-random-reader --width 2 --rate 10
 ```
 
 When a reader module is run from the command line its output stream is sent
-to standard output (the screen). Now let's add this module to our pipeline. We need to create a :ref:`sec-modules` file
+to standard output (the screen). Now let's add this module to our pipeline. We need to create a [module configuration](configuration.md#module-configuration) file
 to tell Joule how to execute the module and where
 to connect its output. To do this create the following file:
 

@@ -121,12 +121,12 @@ The `joule` package should be installed with pip if you plan on using the API fe
     # configure jouled (appropriate for standalone or edge nodes)
     sudo apt install curl
     curl -sSL https://raw.githubusercontent.com/wattsworth/joule/master/install.sh | sh
-    
+    ```  
 ### Docker Container  {: #install-joule-container}
 
 The Joule server may also be installed as a  [docker](#install-docker) container. When running inside a container, Joule will not be able to run
 modules but this can be a useful configuration to work on archived data and is typically used on server nodes. The docker compose file below
-shows a minimal configuration see :ref:`sec-configure-docker` for full details.
+shows a minimal configuration see [] for full details.
 ```{.yaml .copy title="Docker Compose File (Server)"}
 version: "3.9"
 

@@ -1,11 +1,11 @@
 # Joule Module Development
 
-Modules are executable programs that process data :ref:`sec-data-streams`. They are
-connected to each other by :ref:`pipes`. Joule runs each module as a separate
+Modules are executable programs that process [data streams](overview.md#joule). They are
+connected to each other by [pipes](pipes.md). Joule runs each module as a separate
 process. This enforces isolation and improves resiliency.
 Malfunctioning modules do not affect other parts of the pipeline
 and can be restarted without interrupting the data flow. There are three basic types:
-:ref:`sec-reader`, :ref:`sec-filter`, and :ref:`sec-composite`.
+[reader](#reader-modules), [filter](#filter-modules), and [composite](#composite-modules).
 
 Examples in the documentation below are available at https://github.com/wattsworth/example-modules.git
 This repository provides serveral examples of each module types and can be used as a template
@@ -382,7 +382,7 @@ which should perform the following:
   3. Start modules by calling :meth:`joule.BaseModule.run` with the appropriate parameters
   4. Return module tasks for execution in the main event loop
 
-This example contains a :ref:`sec-high-bandwidth-reader` connected to a :ref:`sec-median-filter`.
+This example contains a [high-bandwidth-reader](#high-bandwidth-reader) connected to a [median-filter](module_included.md#median-filter-joule-median-filter).
 The modules are connected with a :class:`joule.LocalPipe` and the output of the
 filter is connected to a :class:`joule.OutputPipe` named **filtered**.
 
