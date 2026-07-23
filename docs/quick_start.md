@@ -18,7 +18,7 @@ Assuming `jouled` is running on the local system (not in a docker container), us
 
 ```{.bash title="SHELL"}
 # authorize CLI access to jouled server
-$> sudo --preserve-env=SUDO_USER,HOME /opt/joule/bin/joule admin authorize
+$> sudo --preserve-env=SUDO_USER,HOME joule admin authorize
 Access to node [XXXX] granted to user [xxxx]
 
 # confirm connection to joule server
@@ -66,7 +66,7 @@ to connect its output. To do this create the following file:
 
 ``` {.ini .copy title="/etc/joule/module_configs/data_source.conf"}
 [Main]
-exec_cmd = /opt/joule/bin/joule-random-reader
+exec_cmd = joule-random-reader
 name = Data Source
 
 [Arguments]
@@ -144,7 +144,7 @@ the module to the pipeline create the following file:
 
 ```{.ini .copy title="/etc/joule/module_configs/data_processor.conf"}
 [Main]
-exec_cmd = /opt/joule/bin/joule-mean-filter
+exec_cmd = joule-mean-filter
 name = Data Processor
 
 [Arguments]
@@ -214,7 +214,7 @@ module to the pipeline.
 
 ```{.ini .copy title="/etc/joule/module_configs/data_app.conf"}
 [Main]
-exec_cmd = /opt/joule/bin/joule-visualizer-filter
+exec_cmd = joule-visualizer-filter
 name = Data App
 is_app = yes
 

@@ -121,13 +121,6 @@ The `joule` package should be installed with pip if you plan on using the API fe
     # configure jouled (appropriate for standalone or edge nodes)
     sudo apt install curl
     curl -sSL https://raw.githubusercontent.com/wattsworth/joule/master/install.sh | sh
-    ```
-
-!!!NOTE
-    After installation run the following command to enable access to `joule` from the command line:
-    ``` bash
-    export PATH=\"/opt/joule/bin\"' >> ~/.bashrc && source ~/.bashrc
-    ```
     
 ### Docker Container  {: #install-joule-container}
 

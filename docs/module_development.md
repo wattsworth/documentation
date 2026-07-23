@@ -14,9 +14,12 @@ to design your own installable Joule modules.
 
 ``` {.bash .copy title="SHELL"}
 git clone https://github.com/wattsworth/example-modules.git
-# install modules in the jouled virtual environment
 cd example-modules
-/opt/joule/bin/pip install .
+# for local development create a virtual environment
+python3 -m venv venv
+source venv/bin/activate
+pip install .
+# for deployment use pipx or uv to install package globally
 ```
 
 The layout of the repository is shown below.
