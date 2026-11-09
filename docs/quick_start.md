@@ -273,10 +273,18 @@ nodes.
 
 
 ```{.bash title="SHELL"}
-# connect joule to the local lumen server
+# connect joule to the local lumen server 
 $> joule master add lumen 127.0.0.1
 # ...follow prompts to create a user account
 ```
+
+
+!!! NOTE
+
+    The command above assumes Joule is running on the host OS on the same system as the Lumen container. If your setup differs,
+    modify the connection address appropriately. In situations where Lumen is unable to infer the address of Joule use the `-u | --remote-access-url` flag. A common alternative configuration is running Joule and Lumen in containers on the same host. In this case the connection command should be changed to:
+
+        joule master add lumen http://172.17.0.1/lumen -u http://172.17.0.1/joule
 
 Now open a browser and point it to <http://127.0.0.1> if you are on the
 target machine or use the IP address of the machine if you want to access

@@ -126,7 +126,7 @@ The `joule` package should be installed with pip if you plan on using the API fe
 
 The Joule server may also be installed as a  [docker](#install-docker) container. When running inside a container, Joule will not be able to run
 modules but this can be a useful configuration to work on archived data and is typically used on server nodes. The docker compose file below
-shows a minimal configuration see [] for full details.
+shows a minimal configuration see [Jouled Configuration](configuration.md#docker-configuration) for full details. Note that if you want to connect a local Joule container to Lumen running on the same machine point Lumen at 172.17.0.1 (the host IP address, not 127.0.0.1 which would refer to the Lumen container itself.)
 ```{.yaml .copy title="Docker Compose File (Server)"}
 version: "3.9"
 
@@ -147,7 +147,7 @@ version: "3.9"
         # generate with [openssl rand -hex 16] or similar
         USER_KEY: ebf8d....b43c2
       ports:
-        - 127.0.0.1:8181:80
+        - 8181:80
 ```
 
 The ``USER_KEY`` environment variable is used to
@@ -219,12 +219,21 @@ sudo curl -sL https://raw.githubusercontent.com/wattsworth/lumen-docker/main/hos
 # lumen specific configuration
 sudo curl -sL https://raw.githubusercontent.com/wattsworth/lumen-docker/main/host/lumen.conf -o /etc/nginx/lumen.conf
 
-# joule specific configuration
+# joule (host OS) specific configuration
 sudo curl -sL https://raw.githubusercontent.com/wattsworth/lumen-docker/main/host/joule.conf -o /etc/nginx/joule.conf
+
+# joule (docker container) specific configuration
+sudo curl -sL https://raw.githubusercontent.com/wattsworth/lumen-docker/main/host/joule_docked.conf -o /etc/nginx/joule_docked.conf
 
 # grant Nginx access to joule, omit if only using lumen
 sudo adduser www-data joule
 ```
+
+
+!!! NOTE
+
+    If you are running Joule in a Docker container change `/etc/nginx/joule.conf` so that the connection is forwarded 
+    to the appropriate container instead of the UNIX socket. Assuming the Joule container is attached to `8181` change the proxy_pass directives to `http://172.17.0.1:8181` instead of `http://unix:/tmp/joule/api`
 
 Select one of the configuration files below and modify the ``server_name`` to match your domain. No additional configuration
 is required to host an HTTP site. To host the site on HTTPS, you will need a valid SSL certificate and
@@ -239,9 +248,13 @@ subdomains (see documentation in ``/opt/lumen/.env``), you will need a CNAME DNS
 
         # server_name directive is optional, but recommended
 
-        # Include one or both statements below to enable lumen and/or joule
+        #---- Lumen configuration
         include "/etc/nginx/lumen.conf";
+        #---- Joule configuration, choose *one*
+        #     if running Joule on the Host OS
         include "/etc/nginx/joule.conf";
+        #     if running Joule in a Docker Container
+        include "/etc/nginx/joule_docked.conf";
     }
     ```
 
@@ -257,10 +270,14 @@ subdomains (see documentation in ``/opt/lumen/.env``), you will need a CNAME DNS
         # Change server name to match your domain
         # include *.app if using subdomain apps configuration
         server_name example.wattsworth.net *.app.example.wattsworth.net;
-
-        # Include one or both statements below to enable lumen and/or joule
+       
+        #---- Lumen configuration
         include "/etc/nginx/lumen.conf";
+        #---- Joule configuration, choose *one*
+        # ... if running Joule on the Host OS
         include "/etc/nginx/joule.conf";
+        # ... if running Joule in a Docker Container
+        include "/etc/nginx/joule_docked.conf";
 
         # Security configuration
         # Note: For subdomain apps this must include wildcard *.app.<yourdomain>

@@ -74,7 +74,7 @@ inline = /stream/path/inline:float32[x,y,z]
 remote = node2.net:8088 /stream/path/remote:float32[x,y,z]
 ```
 
-The pipe configuration can also include an inline stream configuration. This can be used in place of a :ref:`sec-data-streams`
+The pipe configuration can also include an inline stream configuration. This can be used in place of a [Data Stream Configuration](configuration.md#data-stream-configuration)
 file or in addition to it. Using both enables static type checking for the pipeline. The inline configuration is
 separated from the stream path by a colon ``:``. The stream datatype is followed by a list of comma separated element names
 enclosed with brackets ``[ ]``. If
@@ -163,7 +163,7 @@ See the list below for information on each setting.
   * ``default_max``-- control axis scaling, set to None for auto scale
   * ``default_min``-- control axis scaling, set to None for auto scale
 
-Streams may also be configured using an abbreviated inline syntax in a module's :ref:`sec-pipes`.
+Streams may also be configured using an abbreviated inline syntax in a module's [pipe configuration](configuration.md#pipe-format).
 
 .. _sec-event-streams:
 
